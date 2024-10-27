@@ -8,7 +8,7 @@ public class Fiction extends Book {
 	 * type is  a per instance object and it is initialized only once.
 	 * 
 	 */
-	private static FictionType type;
+	private final static FictionType type;
 	public Fiction(String name,FictionType ft) {
 		this.name=name;
 		this.type=ft;
