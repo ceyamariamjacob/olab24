@@ -11,16 +11,23 @@ public class OldSelection {
 	 */
 	public static String getAgeOrTitle(Object o) {
 		
-		if (o instanceof Book) {
-			
-		}
-		return null;
+		return switch(o){
+			case Fiction f-> f.getName();
+			case TextBook t-> t.subject();
+			case Comic c-> c.getTitle();
+			default -> "";
+		};
 	}
 
 	public static void main(String[] args) {
 		
 		// TODO: Write a test code here and execute and text.
-		TextBook t = new TextBook();
+		TextBook t=new TextBook("Social Science");
+		Comic c=new Comic("Batman", 34);
+		Fiction f=new Fiction("Hamlet", FictionType.Tragedy);
+		System.out.println(OldSelection.getAgeOrTitle(t));
+		System.out.println(OldSelection.getAgeOrTitle(c));
+		System.out.println(OldSelection.getAgeOrTitle(f));
 		
 	}
 }
